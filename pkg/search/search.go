@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"context"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -45,6 +44,5 @@ func All(ctx context.Context, phrase string, files []string) <-chan []Result {
 			}
 		}(ctx, file)
 	}
-
 	return ch
 }

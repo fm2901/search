@@ -9,7 +9,7 @@ import (
 
 func main() {
 	root := context.Background()
-	ctx, cancel := context.WithCancel(root)
+	ctx, _ := context.WithCancel(root)
 	files := []string{
 		"C:/homework/dz20/search/data/test1.txt",
 		"C:/homework/dz20/search/data/test2.txt",
