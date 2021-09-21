@@ -4,10 +4,11 @@ import (
 	"context"
 	"log"
 
-	"github.com/fm2901/search"
+	"github.com/fm2901/search/pkg/search"
 )
 
 func main() {
+
 	root := context.Background()
 	ctx, _ := context.WithCancel(root)
 	files := []string{
