@@ -1,9 +1,13 @@
 package search
 
 import (
-	"context"	"os"
+	"bufio"
+	"context"
+	"io"
+	"io/ioutil"
+	"log"
+	"os"
 )
-
 
 type Result struct {
 	Phrase  string
@@ -12,8 +16,7 @@ type Result struct {
 	ColNum  int64
 }
 
-
-func All(ctx context.Context, phrase string, files []string) <- chan []Result {
+func All(ctx context.Context, phrase string, files []string) <-chan []Result {
 	ch := make(chan []Result)
 
 	for _, file := range files {
@@ -30,7 +33,8 @@ func All(ctx context.Context, phrase string, files []string) <- chan []Result {
 			}()
 			reader := bufio.NewReader(src)
 			for {
-				line, err := reader.ReadSring('\n')
+				line, err := reader.ReadString('\n')
+				log.Print(line)
 				if err == io.EOF {
 					break
 				}
